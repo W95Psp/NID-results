@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="viewer-data/cytoscape.min.js"></script>
+		<script type="text/javascript" src="viewer-data/angular.min.js"></script>
+		<script type="text/javascript" src="viewer-data/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="viewer-data/dagre.min.js"></script>
+		<script type="text/javascript" src="viewer-data/dagre.js"></script>
+		<script type="text/javascript" src="viewer-data/ngCytoscape.min.js"></script>
+		<script type="text/javascript" src="viewer-data/script-5.js"></script>
+		<!-- <script type="text/javascript" src="viewer-data/script-5.js"></script> -->
+		<style type="text/css">
+			.cy {
+				width: 100%;
+				height: 85%;
+				display: block;
+			}
+			.cyContainer{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 20px;
+				left: -120%;
+			}
+			.cyContainer[active="true"]{
+				left: 0px;
+			}
+			#a_jpeg{
+				background-image: url("a_jpeg");
+			}
+		</style>
+		<title>Preview</title>
+	</head>
+	<body ng-app='app' ng-controller='ctrl'>
+		<div>
+			<select ng-options='i as i.name for i in listCat' ng-model='selectedCat'></select>
+			<select ng-if='selectedCat' ng-options='i.id as i.name for i in selectedCat.list' ng-model='$parent.selected'></select>
+		</div>
+		<div ng-if='list.length < 27'>Loading... {{list.length}}/27</div>
+		<div ng-repeat='v in list' class='cyContainer' active='{{selected == v.id}}'>
+			 <cytoscape class='cy' graph-elements="v.elems" graph-layout="layout" graph-style="style"></cytoscape>
+		</div>
+	</body>
+</html>
