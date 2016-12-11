@@ -205,7 +205,7 @@ app.controller('ctrl', function ($scope, $http) {
 			console.log('skip', name, HASH);
 			return callback();
 		}
-		var dir = '/listResults/' + name + '/';
+		var dir = 'listResults/' + name + '/';
 
 		$http.get(dir + 'names.csv').then(function (_ref) {
 			var data = _ref.data;
