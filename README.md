@@ -1,2 +1,5 @@
-# NID-results
-Preview: https://rawgit.com/W95Psp/NID-results/master/index.html
+# Normalized Information Distance results
+Preview: https://w95psp.github.io/NID-results/
+
+Results from a tool using NID (https://arxiv.org/abs/0809.2553) to cluster pictures, music, etc.
+
